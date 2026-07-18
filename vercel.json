@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/charge.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/download.js": {
+      "memory": 128,
+      "maxDuration": 10,
+      "includeFiles": "private/**"
+    }
+  }
+}

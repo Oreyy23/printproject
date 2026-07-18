@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Digital Income Blueprint – Start Earning Online</title>
+<meta name="description" content="A complete beginner-friendly guide to building real income online through digital marketing — step by step, no fluff." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://js.yoco.com/sdk/v1/yoco-sdk-web.js"></script>
+<style>
+  :root{
+    --ink:#0D0E12;
+    --panel:#16181F;
+    --panel-2:#1D2029;
+    --line:#2A2D37;
+    --cream:#F4F0E6;
+    --muted:#9A9DAA;
+    --gold:#D2A24C;
+    --gold-soft:#e9c98a;
+    --teal:#59C9B4;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{content:"//";opacity:.7;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  img,svg{display:block;max-width:100%;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(13,14,18,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cream);}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(210,162,76,0.18);}
+  .navlinks{display:flex;gap:28px;font-size:14.5px;color:var(--muted);}
+  .navlinks a:hover{color:var(--cream);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:9px;font-weight:600;font-size:14.5px;
+    cursor:pointer;border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--gold);color:#1a1305;}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(210,162,76,0.55);}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .btn-sm{padding:9px 16px;font-size:13.5px;}
+
+  /* HERO */
+  .hero{padding:88px 0 64px;position:relative;overflow:hidden;}
+  .hero::before{
+    content:"";position:absolute;inset:-200px -100px auto auto;width:600px;height:600px;
+    background:radial-gradient(circle, rgba(210,162,76,0.14), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;position:relative;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:100px;
+    border:1px solid var(--line);font-size:12.5px;color:var(--muted);margin-bottom:22px;
+  }
+  .badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(89,201,180,0.2);}
+  .hero h1{font-size:clamp(36px,5vw,58px);line-height:1.04;color:var(--cream);}
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p.lead{font-size:17.5px;color:var(--muted);max-width:480px;margin:22px 0 32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .stat-row{display:flex;gap:36px;flex-wrap:wrap;}
+  .stat .num{font-family:'Fraunces',serif;font-size:30px;color:var(--cream);font-weight:700;}
+  .stat .lab{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+
+  /* Document mockup */
+  .doc-mock{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);
+    transform:rotate(1.2deg);
+    animation:float 6s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:rotate(1.2deg) translateY(0);}50%{transform:rotate(1.2deg) translateY(-10px);}}
+  .doc-titlebar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);}
+  .doc-titlebar span{width:10px;height:10px;border-radius:50%;background:var(--line);}
+  .doc-titlebar .filename{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+  .doc-body{padding:26px 24px 30px;}
+  .doc-body .doc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;}
+  .doc-body h3{color:var(--cream);font-size:22px;margin-bottom:4px;}
+  .doc-body .doc-sub{color:var(--muted);font-size:13.5px;margin-bottom:20px;}
+  .toc-line{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px;}
+  .toc-line:last-child{border-bottom:none;}
+  .toc-line .n{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:12px;width:34px;flex-shrink:0;}
+  .toc-line .t{color:var(--cream);}
+  .toc-line .star{margin-left:auto;color:var(--gold);}
+
+  section{padding:88px 0;}
+  .section-head{max-width:620px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--cream);margin:14px 0 12px;}
+  .section-head p{color:var(--muted);font-size:16px;}
+
+  /* Feature grid */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .feat-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .feat-card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:block;}
+  .feat-card h3{font-size:18px;color:var(--cream);margin-bottom:8px;font-family:'Inter',sans-serif;font-weight:600;}
+  .feat-card p{color:var(--muted);font-size:14.5px;margin:0;}
+  .feat-card.highlight{border-color:rgba(210,162,76,0.5);background:linear-gradient(180deg, rgba(210,162,76,0.08), var(--panel) 60%);}
+
+  /* TOC full */
+  .toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .toc-card{
+    display:flex;gap:16px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .toc-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+  .toc-card.star{border-color:var(--gold);background:linear-gradient(135deg, rgba(210,162,76,0.12), var(--panel) 55%);}
+  .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:13px;flex-shrink:0;padding-top:2px;}
+  .toc-card h4{font-family:'Inter',sans-serif;font-weight:600;font-size:15.5px;color:var(--cream);margin:0 0 6px;}
+  .toc-card p{margin:0;color:var(--muted);font-size:13.5px;}
+
+  /* Formula strip */
+  .formula-strip{
+    display:flex;flex-wrap:wrap;align-items:center;gap:0;
+    border:1px solid var(--line);border-radius:16px;background:var(--panel);
+    padding:8px;
+  }
+  .formula-step{
+    flex:1 1 120px;text-align:center;padding:20px 10px;position:relative;
+  }
+  .formula-step .fnum{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:12px;display:block;margin-bottom:8px;}
+  .formula-step .flabel{font-size:14px;color:var(--cream);font-weight:600;}
+  .formula-arrow{color:var(--line);font-size:20px;padding:0 4px;flex:0 0 auto;}
+  @media(max-width:900px){.formula-arrow{display:none;}}
+
+  /* Who for */
+  .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .who-card{display:flex;gap:16px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);}
+  .who-card .emoji{font-size:26px;line-height:1;}
+  .who-card h4{font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:var(--cream);margin:0 0 6px;}
+  .who-card p{margin:0;color:var(--muted);font-size:14px;}
+
+  /* Final CTA */
+  .cta-panel{
+    border:1px solid var(--line);border-radius:22px;padding:56px;
+    background:radial-gradient(120% 140% at 20% 0%, rgba(210,162,76,0.14), var(--panel) 55%);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-panel h2{font-size:clamp(28px,4vw,42px);color:var(--cream);max-width:640px;margin:0 auto 14px;}
+  .cta-panel p.sub{color:var(--muted);margin-bottom:30px;}
+  .price-tag{font-family:'Fraunces',serif;font-size:52px;color:var(--gold);font-weight:700;}
+  .price-note{color:var(--muted);font-size:13.5px;margin-bottom:26px;}
+  .cta-panel .fine{margin-top:22px;font-size:12.5px;color:var(--muted);}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-row p{color:var(--muted);font-size:13px;margin:0;}
+  .disclaimer{color:var(--muted);font-size:12.5px;max-width:640px;margin:0 auto 18px;text-align:center;}
+
+  /* MODAL */
+  .overlay{
+    position:fixed;inset:0;background:rgba(6,7,10,0.72);backdrop-filter:blur(4px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
+  }
+  .overlay.open{display:flex;}
+  .modal{
+    width:100%;max-width:440px;background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;padding:30px 28px 28px;position:relative;
+    box-shadow:0 50px 100px -30px rgba(0,0,0,0.7);
+  }
+  .modal .close{position:absolute;top:16px;right:18px;color:var(--muted);cursor:pointer;font-size:18px;background:none;border:none;}
+  .modal .close:hover{color:var(--cream);}
+  .modal h3{color:var(--cream);font-size:20px;margin-bottom:6px;}
+  .modal p.desc{color:var(--muted);font-size:14px;margin-bottom:22px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
+  .field input{
+    width:100%;padding:11px 13px;border-radius:9px;border:1px solid var(--line);
+    background:var(--ink);color:var(--cream);font-size:14.5px;font-family:'Inter',sans-serif;
+  }
+  .field input:focus{outline:none;border-color:var(--gold);}
+  .modal .btn-primary{width:100%;margin-top:6px;padding:13px;font-size:15px;}
+  .modal .lock{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:16px;color:var(--muted);font-size:12.5px;}
+  .modal .price-line{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin:18px 0;}
+  .modal .price-line .amt{font-family:'Fraunces',serif;font-size:26px;color:var(--gold);}
+  .status{display:none;text-align:center;}
+  .status.open{display:block;}
+  .status .tick{width:56px;height:56px;border-radius:50%;background:rgba(89,201,180,0.14);border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:26px;color:var(--teal);}
+  .status.error .tick{background:rgba(220,90,90,0.14);border-color:#d86a6a;color:#d86a6a;}
+  .status h3{margin-bottom:8px;}
+  .status p{color:var(--muted);font-size:14px;margin-bottom:20px;}
+  .form-view.hidden,.status.hidden{display:none;}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;}
+    .feat-grid{grid-template-columns:1fr;}
+    .toc-grid{grid-template-columns:1fr;}
+    .who-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    .cta-panel{padding:36px 22px;}
+    .doc-mock{transform:none;animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span>DIB_GUIDE.PDF</div>
+    <div class="navlinks">
+      <a href="#chapters">Chapters</a>
+      <a href="#formula">The Formula</a>
+      <a href="#for-you">Who It's For</a>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="openCheckout()">Get the Guide</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge"><span class="pulse"></span>New Release · Digital Guide</div>
+        <h1>The Digital<br>Income <em>Blueprint</em></h1>
+        <p class="lead">A complete beginner-friendly guide to building real income online through digital marketing — step by step, no fluff, no excuses.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="openCheckout()">Get the Guide Now</button>
+          <a class="btn btn-ghost" href="#chapters">See What's Inside →</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="num">10</div><div class="lab">Chapters</div></div>
+          <div class="stat"><div class="num">1</div><div class="lab">Complete Formula</div></div>
+          <div class="stat"><div class="num">0</div><div class="lab">Experience Needed</div></div>
+          <div class="stat"><div class="num">PDF</div><div class="lab">Instant Access</div></div>
+        </div>
+      </div>
+
+      <div class="doc-mock">
+        <div class="doc-titlebar">
+          <span></span><span></span><span></span>
+          <div class="filename">Digital_Income_Blueprint.pdf</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-eyebrow">// what you get</div>
+          <h3>The Digital Income Blueprint</h3>
+          <div class="doc-sub">How I Use Digital Marketing to Build Income Online</div>
+          <div class="toc-line"><span class="n">CH.1</span><span class="t">Understanding Digital Marketing</span></div>
+          <div class="toc-line"><span class="n">CH.2</span><span class="t">Finding Your Niche</span></div>
+          <div class="toc-line"><span class="n">CH.3</span><span class="t">Building Your Personal Brand</span></div>
+          <div class="toc-line"><span class="n">CH.4</span><span class="t">Content That Gets Attention</span></div>
+          <div class="toc-line"><span class="n">CH.5</span><span class="t">Growing Through TikTok</span></div>
+          <div class="toc-line"><span class="n">…</span><span class="t" style="color:var(--muted);">5 more chapters</span></div>
+          <div class="toc-line"><span class="n">CH.10</span><span class="t">The Digital Marketing Formula</span><span class="star">★</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">what you get</div>
+        <h2>Everything you need to start earning online</h2>
+        <p>Five reasons this guide replaces a hundred scattered TikTok videos and half-finished courses.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card highlight">
+          <span class="tag">Ch.10 · the payoff</span>
+          <h3>The complete step-by-step formula</h3>
+          <p>Chapter 10 alone is worth the price — a single, clear blueprint you can follow from zero to your first sale.</p>
+        </div>
+        <div class="feat-card">
+          <span class="tag">Ch.5</span>
+          <h3>TikTok growth strategies for beginners</h3>
+          <p>Exactly how to grow fast on TikTok — hooks, posting frequency, and what content actually gets views.</p>
+        </div>
+        <div class="feat-card">
+          <span class="tag">Ch.6</span>
+          <h3>How to find & promote products</h3>
+          <p>Make money promoting other people's products through affiliate programs and digital marketplaces — no stock needed.</p>
+        </div>
+        <div class="feat-card">
+          <span class="tag">Ch.7</span>
+          <h3>AI tools to speed up your content</h3>
+          <p>Use AI the right way — to create faster without losing your personal voice and authenticity.</p>
+        </div>
+        <div class="feat-card">
+          <span class="tag">Ch.8</span>
+          <h3>Email marketing that builds real income</h3>
+          <p>Build an email list you own — so you're never at the mercy of algorithm changes.</p>
+        </div>
+        <div class="feat-card">
+          <span class="tag">Ch.9</span>
+          <h3>Search traffic & long-term growth</h3>
+          <p>Content that keeps working months after you post it — traffic while you sleep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chapters">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">table of contents</div>
+        <h2>10 chapters. One clear path.</h2>
+        <p>Every chapter builds on the last, taking you from zero understanding to a complete working system.</p>
+      </div>
+      <div class="toc-grid">
+        <div class="toc-card"><span class="toc-num">CH.01</span><div><h4>Understanding Digital Marketing</h4><p>The core principle behind every successful online business: Attention → Trust → Action.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.02</span><div><h4>Finding Your Niche</h4><p>The most important decision you'll make. Choose the right niche and the rest becomes 10× easier.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.03</span><div><h4>Building Your Personal Brand</h4><p>You don't need luxury cars or fancy gear. You need consistency, authenticity, and value.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.04</span><div><h4>Content That Gets Attention</h4><p>The Hook → Value → Call to Action formula that makes content work — even with zero followers.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.05</span><div><h4>Growing Through TikTok</h4><p>The fastest platform for beginners right now. Strong hooks, daily posting, simple execution.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.06</span><div><h4>Products & Offers</h4><p>You don't need to create products. Learn how to find existing ones and earn by promoting them.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.07</span><div><h4>Using AI & Content Creation</h4><p>Create faster and smarter — without losing the personal touch that builds real trust.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.08</span><div><h4>Email Marketing</h4><p>Build an audience you actually own. Followers come and go — your email list is yours forever.</p></div></div>
+        <div class="toc-card"><span class="toc-num">CH.09</span><div><h4>Search Traffic & Long-Term Growth</h4><p>Create content that keeps working months after you post it — traffic while you sleep.</p></div></div>
+        <div class="toc-card star"><span class="toc-num">CH.10 ★</span><div><h4>The Digital Marketing Formula</h4><p>The complete blueprint in one chapter. A simple 7-step system anyone can follow. Start here if you want to move fast.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formula">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">the system</div>
+        <h2>The Formula — at a glance</h2>
+        <p>This is the 7-step system covered in full detail inside the guide.</p>
+      </div>
+      <div class="formula-strip">
+        <div class="formula-step"><span class="fnum">STEP 1</span><div class="flabel">Choose a Niche</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 2</span><div class="flabel">Create Profiles</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 3</span><div class="flabel">Find Products</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 4</span><div class="flabel">Create Content</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 5</span><div class="flabel">Add Your Link</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 6</span><div class="flabel">Post Daily</div></div>
+        <div class="formula-arrow">→</div>
+        <div class="formula-step"><span class="fnum">STEP 7</span><div class="flabel">Generate Sales</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="for-you">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">who this is for</div>
+        <h2>This guide is built for you if…</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-card"><span class="emoji">📱</span><div><h4>You're on TikTok but making zero money</h4><p>You're already creating content — you just need a system to turn views into actual income.</p></div></div>
+        <div class="who-card"><span class="emoji">🎯</span><div><h4>You want to start from zero</h4><p>No audience, no product, no experience. This guide starts at the very beginning.</p></div></div>
+        <div class="who-card"><span class="emoji">💡</span><div><h4>You've tried before but nothing clicked</h4><p>No vague advice here — a step-by-step system with specific platforms, actions, and priorities.</p></div></div>
+        <div class="who-card"><span class="emoji">🚀</span><div><h4>You want to build something real</h4><p>Not a get-rich-quick shortcut. A proper skill you build over time that creates consistent income.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-panel">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:16px;">get the guide</div>
+        <h2>Your first post could be the beginning of everything.</h2>
+        <p class="sub">The guide is ready. The system is proven. The only thing missing is you taking action.</p>
+        <div class="price-tag">R299</div>
+        <div class="price-note">One-time payment · Instant PDF download · No subscription</div>
+        <button class="btn btn-primary" onclick="openCheckout()" style="padding:15px 34px;font-size:15.5px;">Download the Blueprint</button>
+        <div class="fine">Secure payment via Yoco · Instant delivery</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="disclaimer">This guide is for educational purposes only. Results vary depending on effort, consistency, and skill. Digital marketing requires continuous learning and action.</p>
+    <div class="footer-row">
+      <p class="mono">DIB_GUIDE.PDF</p>
+      <p>© 2026 Digital Income Blueprint</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" onclick="closeCheckout()">✕</button>
+
+    <div class="form-view" id="formView">
+      <div class="eyebrow">secure checkout</div>
+      <h3>Get the Digital Income Blueprint</h3>
+      <p class="desc">Enter your details below. Your card is processed securely by Yoco — nothing is stored on this site.</p>
+      <form id="checkoutForm">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" id="fullName" required placeholder="Jane Dlamini" />
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" id="email" required placeholder="you@example.com" />
+        </div>
+        <div class="price-line">
+          <span class="mono" style="color:var(--muted);font-size:13px;">Digital_Income_Blueprint.pdf</span>
+          <span class="amt">R299</span>
+        </div>
+        <button type="submit" class="btn btn-primary" id="payBtn">Pay R299 & Get Instant Access</button>
+      </form>
+      <div class="lock">🔒 Your info is safe. No spam, ever.</div>
+    </div>
+
+    <div class="status" id="statusLoading">
+      <div class="tick">⏳</div>
+      <h3 style="text-align:center;">Processing payment…</h3>
+      <p style="text-align:center;">Please don't close this window.</p>
+    </div>
+
+    <div class="status" id="statusSuccess">
+      <div class="tick">✓</div>
+      <h3 style="text-align:center;">You're in. 🎉</h3>
+      <p style="text-align:center;">Payment received. Your guide is ready to download below.</p>
+      <a class="btn btn-primary" style="width:100%;" id="downloadLink" href="#" download>Download Your Guide</a>
+    </div>
+
+    <div class="status error" id="statusError">
+      <div class="tick">✕</div>
+      <h3 style="text-align:center;">Payment didn't go through</h3>
+      <p style="text-align:center;" id="errorMsg">Please check your card details and try again.</p>
+      <button class="btn btn-primary" style="width:100%;" onclick="resetCheckout()">Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ⚠️ Replace with your real Yoco PUBLIC (test/live) key — this one is safe to expose client-side.
+  const YOCO_PUBLIC_KEY = "sk_test_c98fb2c7bBLPxKZ40d9445cb5714"; // <-- put your real public key here
+  const AMOUNT_IN_CENTS = 29900; // R299.00
+
+  const overlay = document.getElementById('overlay');
+  const formView = document.getElementById('formView');
+  const statusLoading = document.getElementById('statusLoading');
+  const statusSuccess = document.getElementById('statusSuccess');
+  const statusError = document.getElementById('statusError');
+  const payBtn = document.getElementById('payBtn');
+
+  function openCheckout(){
+    overlay.classList.add('open');
+    showView('form');
+  }
+  function closeCheckout(){
+    overlay.classList.remove('open');
+  }
+  function showView(view){
+    formView.classList.toggle('hidden', view !== 'form');
+    statusLoading.classList.toggle('open', view === 'loading');
+    statusSuccess.classList.toggle('open', view === 'success');
+    statusError.classList.toggle('open', view === 'error');
+  }
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+
+    const sdk = new window.YocoSDK({ publicKey: YOCO_PUBLIC_KEY });
+
+    // Close our own modal before opening Yoco's popup. Yoco injects its popup
+    // into the page in its own stacking context, and our overlay (with its
+    // own z-index + backdrop-filter) can end up sitting on top of it. Hiding
+    // ours first guarantees the card popup is always visible, regardless of
+    // whatever z-index Yoco uses internally.
+    overlay.classList.remove('open');
+
+    sdk.showPopup({
+      amountInCents: AMOUNT_IN_CENTS,
+      currency: 'ZAR',
+      name: 'Digital Income Blueprint',
+      description: 'Digital_Income_Blueprint.pdf — one-time purchase',
+      callback: async function(result){
+        // Bring our modal back to show the loading/success/error state.
+        overlay.classList.add('open');
+
+        if (result.error) {
+          document.getElementById('errorMsg').textContent = result.error.message || 'Please check your card details and try again.';
+          showView('error');
+          return;
+        }
+        showView('loading');
+        try {
+          const res = await fetch('/api/charge', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              token: result.id,
+              amountInCents: AMOUNT_IN_CENTS,
+              currency: 'ZAR',
+              name,
+              email
+            })
+          });
+          const data = await res.json();
+          if (res.ok && data.status === 'successful' && data.downloadUrl) {
+            document.getElementById('downloadLink').href = data.downloadUrl;
+            showView('success');
+          } else {
+            document.getElementById('errorMsg').textContent = data.message || 'Payment could not be completed.';
+            showView('error');
+          }
+        } catch (err) {
+          document.getElementById('errorMsg').textContent = 'Network error — please try again.';
+          showView('error');
+        }
+      },
+      onCancel: function(){
+        // User closed the Yoco popup without paying — bring our modal back
+        // to the details form so they can try again.
+        overlay.classList.add('open');
+        showView('form');
+      }
+    });
+  });
+
+  function resetCheckout(){ showView('form'); }
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeCheckout();
+  });
+</script>
+
+</body>
+</html>
